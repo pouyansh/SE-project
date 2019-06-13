@@ -1,0 +1,1103 @@
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+ERROR:django_apscheduler:Exception during getting jobs
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 68, in get_due_jobs
+    out = self._get_jobs(next_run_time__lte=serialize_dt(now))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 153, in _get_jobs
+    for job_id, job_state in job_states:
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 268, in __iter__
+    self._fetch_all()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 138, in __iter__
+    return compiler.results_iter(tuple_expected=True, chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1017, in results_iter
+    results = self.execute_sql(MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+ERROR:django_apscheduler:Exception during get_next_run_time for jobs
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 78, in get_next_run_time
+    return deserialize_dt(DjangoJob.objects.filter(next_run_time__isnull=False).earliest('next_run_time').next_run_time)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 598, in earliest
+    return self._earliest_or_latest(*fields, field_name=field_name)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 595, in _earliest_or_latest
+    return obj.get()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 393, in get
+    num = len(clone)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 250, in __len__
+    self._fetch_all()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 54, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+ERROR:django_apscheduler:Exception during getting jobs
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 68, in get_due_jobs
+    out = self._get_jobs(next_run_time__lte=serialize_dt(now))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 153, in _get_jobs
+    for job_id, job_state in job_states:
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 268, in __iter__
+    self._fetch_all()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 138, in __iter__
+    return compiler.results_iter(tuple_expected=True, chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1017, in results_iter
+    results = self.execute_sql(MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+ERROR:django_apscheduler:Exception during get_next_run_time for jobs
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 78, in get_next_run_time
+    return deserialize_dt(DjangoJob.objects.filter(next_run_time__isnull=False).earliest('next_run_time').next_run_time)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 598, in earliest
+    return self._earliest_or_latest(*fields, field_name=field_name)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 595, in _earliest_or_latest
+    return obj.get()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 393, in get
+    num = len(clone)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 250, in __len__
+    self._fetch_all()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 54, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+ERROR:django_apscheduler:Exception during getting jobs
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 68, in get_due_jobs
+    out = self._get_jobs(next_run_time__lte=serialize_dt(now))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 153, in _get_jobs
+    for job_id, job_state in job_states:
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 268, in __iter__
+    self._fetch_all()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 138, in __iter__
+    return compiler.results_iter(tuple_expected=True, chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1017, in results_iter
+    results = self.execute_sql(MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+ERROR:django_apscheduler:Exception during get_next_run_time for jobs
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 78, in get_next_run_time
+    return deserialize_dt(DjangoJob.objects.filter(next_run_time__isnull=False).earliest('next_run_time').next_run_time)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 598, in earliest
+    return self._earliest_or_latest(*fields, field_name=field_name)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 595, in _earliest_or_latest
+    return obj.get()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 393, in get
+    num = len(clone)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 250, in __len__
+    self._fetch_all()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 54, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+ERROR:django_apscheduler:Exception during getting jobs
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 68, in get_due_jobs
+    out = self._get_jobs(next_run_time__lte=serialize_dt(now))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 153, in _get_jobs
+    for job_id, job_state in job_states:
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 268, in __iter__
+    self._fetch_all()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 138, in __iter__
+    return compiler.results_iter(tuple_expected=True, chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1017, in results_iter
+    results = self.execute_sql(MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+ERROR:django_apscheduler:Exception during get_next_run_time for jobs
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django_apscheduler\jobstores.py", line 78, in get_next_run_time
+    return deserialize_dt(DjangoJob.objects.filter(next_run_time__isnull=False).earliest('next_run_time').next_run_time)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 598, in earliest
+    return self._earliest_or_latest(*fields, field_name=field_name)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 595, in _earliest_or_latest
+    return obj.get()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 393, in get
+    num = len(clone)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 250, in __len__
+    self._fetch_all()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 54, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1065, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_apscheduler_djangojob" does not exist
+LINE 1: ..., "django_apscheduler_djangojob"."job_state" FROM "django_ap...
+                                                             ^
+
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+ERROR:django.request:Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\utils.py", line 66, in __getitem__
+    return self._engines[alias]
+KeyError: 'django'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\backends\django.py", line 121, in get_package_libraries
+    module = import_module(entry[1])
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "F:\daneshgah\asd-g7\apps\landing\templatetags\template_tags.py", line 3, in <module>
+    import pendulum
+ModuleNotFoundError: No module named 'pendulum'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 156, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 154, in _get_response
+    response = response.render()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\loader.py", line 38, in select_template
+    engines = _engine_list(using)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\loader.py", line 66, in _engine_list
+    return engines.all() if using is None else [engines[using]]
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\utils.py", line 90, in all
+    return [self[alias] for alias in self]
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\utils.py", line 90, in <listcomp>
+    return [self[alias] for alias in self]
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\utils.py", line 81, in __getitem__
+    engine = engine_cls(params)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\backends\django.py", line 25, in __init__
+    options['libraries'] = self.get_templatetag_libraries(libraries)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\backends\django.py", line 43, in get_templatetag_libraries
+    libraries = get_installed_libraries()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\backends\django.py", line 108, in get_installed_libraries
+    for name in get_package_libraries(pkg):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\template\backends\django.py", line 125, in get_package_libraries
+    "trying to load '%s': %s" % (entry[1], e)
+django.template.library.InvalidTemplateLibrary: Invalid template library specified. ImportError raised when trying to load 'apps.landing.templatetags.template_tags': No module named 'pendulum'
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Added job "finish_auction" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-03-16 22:24:37.247830+03:30 (in 2419199.795003 seconds)
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+INFO:apscheduler.executors.default:Running job "finish_advertise (trigger: date[2019-02-16 18:55:05 UTC], next run at: 2019-02-16 18:55:05 UTC)" (scheduled at 2019-02-16 18:55:05.711431+00:00)
+INFO:apscheduler.scheduler:Removed job advertise_1
+WARNING:django_apscheduler.events:Job with id advertise_1 not found in database
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-03-16 22:24:37.247830+03:30 (in 2419171.523427 seconds)
+INFO:apscheduler.executors.default:Job "finish_advertise (trigger: date[2019-02-16 18:55:05 UTC], next run at: 2019-02-16 18:55:05 UTC)" executed successfully
+WARNING:django_apscheduler.events:Job with id advertise_1 not found in database
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-03-16 22:24:37.247830+03:30 (in 2418986.364041 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-03-16 22:24:37.247830+03:30 (in 2418966.919664 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+INFO:apscheduler.executors.default:Running job "finish_advertise (trigger: date[2019-02-16 18:58:42 UTC], next run at: 2019-02-16 18:58:42 UTC)" (scheduled at 2019-02-16 18:58:42.916485+00:00)
+INFO:apscheduler.scheduler:Removed job advertise_2
+WARNING:django_apscheduler.events:Job with id advertise_2 not found in database
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-03-16 22:24:37.247830+03:30 (in 2418954.233378 seconds)
+INFO:apscheduler.executors.default:Job "finish_advertise (trigger: date[2019-02-16 18:58:42 UTC], next run at: 2019-02-16 18:58:42 UTC)" executed successfully
+WARNING:django_apscheduler.events:Job with id advertise_2 not found in database
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-03-16 22:24:37.247830+03:30 (in 2418189.012274 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 22:44:27.501929+03:30 (in 119.906031 seconds)
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+INFO:apscheduler.executors.default:Running job "finish_advertise (trigger: date[2019-02-16 19:14:27 UTC], next run at: 2019-02-16 19:14:27 UTC)" (scheduled at 2019-02-16 19:14:27.501929+00:00)
+INFO:apscheduler.scheduler:Removed job advertise_3
+WARNING:django_apscheduler.events:Job with id advertise_3 not found in database
+WARNING:django_apscheduler.events:Job with id advertise_3 not found in database
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-03-16 22:24:37.247830+03:30 (in 2418009.735078 seconds)
+INFO:apscheduler.executors.default:Job "finish_advertise (trigger: date[2019-02-16 19:14:27 UTC], next run at: 2019-02-16 19:14:27 UTC)" executed successfully
+WARNING:django_apscheduler.events:Job with id advertise_3 not found in database
+WARNING:django_apscheduler.events:Job with id advertise_3 not found in database
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 22:48:02.068428+03:30 (in 86399.987957 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 3599.988104 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 3587.851636 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 3434.916159 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 3396.764373 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 3383.805721 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 3200.640647 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 3188.554216 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 3173.915168 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 3020.756591 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 2942.789013 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 2874.971182 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 2859.170028 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 2704.368150 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 2546.500659 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 2377.764572 seconds)
+ERROR:django.request:Internal Server Error: /create_advertisement/16/
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\daneshgah\asd-g7\apps\advertisement\views.py", line 20, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\contrib\auth\mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 172, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 142, in post
+    return self.form_valid(form)
+  File "F:\daneshgah\asd-g7\apps\advertisement\views.py", line 51, in form_valid
+    return super().form_valid(form)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 125, in form_valid
+    self.object = form.save()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\models.py", line 458, in save
+    self.instance.save()
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 38, in save
+    adv.save()
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 38, in save
+    adv.save()
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 38, in save
+    adv.save()
+  [Previous line repeated 914 more times]
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 29, in save
+    print("advs = ", advs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 244, in __repr__
+    data = list(self[:REPR_OUTPUT_SIZE + 1])
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 268, in __iter__
+    self._fetch_all()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 1186, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 54, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 1052, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 449, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\compiler.py", line 52, in pre_sql_setup
+    self.where, self.having = self.query.where.split_having()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\where.py", line 38, in split_having
+    if not self.contains_aggregate:
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\utils\functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\where.py", line 170, in contains_aggregate
+    return self._contains_aggregate(self)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\where.py", line 165, in _contains_aggregate
+    return any(cls._contains_aggregate(c) for c in obj.children)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\where.py", line 165, in <genexpr>
+    return any(cls._contains_aggregate(c) for c in obj.children)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\sql\where.py", line 166, in _contains_aggregate
+    return obj.contains_aggregate
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\utils\functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\lookups.py", line 118, in contains_aggregate
+    return self.lhs.contains_aggregate or getattr(self.rhs, 'contains_aggregate', False)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\utils\functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\expressions.py", line 211, in contains_aggregate
+    return any(expr and expr.contains_aggregate for expr in self.get_source_expressions())
+RecursionError: maximum recursion depth exceeded
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 2240.990958 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 2013.905319 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:21:28.257053+03:30 (in 299.866039 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:21:28.257053+03:30 (in 268.138614 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:21:28.257053+03:30 (in 256.336514 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:21:28.257053+03:30 (in 139.779198 seconds)
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+INFO:apscheduler.executors.default:Running job "finish_advertise (trigger: date[2019-02-16 19:51:28 UTC], next run at: 2019-02-16 19:51:28 UTC)" (scheduled at 2019-02-16 19:51:28.257053+00:00)
+INFO:apscheduler.scheduler:Removed job advertise_12
+WARNING:django_apscheduler.events:Job with id advertise_12 not found in database
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 1614.618416 seconds)
+INFO:apscheduler.executors.default:Job "finish_advertise (trigger: date[2019-02-16 19:51:28 UTC], next run at: 2019-02-16 19:51:28 UTC)" executed successfully
+WARNING:django_apscheduler.events:Job with id advertise_12 not found in database
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 1202.642128 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 1163.892445 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 1151.873979 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 1133.153295 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 1125.376016 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 1023.783576 seconds)
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 897.021037 seconds)
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 727.375119 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 707.629964 seconds)
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /create_advertisement/16/
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\daneshgah\asd-g7\apps\advertisement\views.py", line 20, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\contrib\auth\mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 172, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 141, in post
+    if form.is_valid():
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 185, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 180, in errors
+    self.full_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 383, in full_clean
+    self._post_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\models.py", line 403, in _post_clean
+    self.instance.full_clean(exclude=exclude, validate_unique=False)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 1137, in full_clean
+    self.clean()
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 28, in clean
+    advs = Advertisement.objects.filter(product__id=self.product.id, page=self.page, place=self.place)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\related_descriptors.py", line 188, in __get__
+    "%s has no %s." % (self.field.model.__name__, self.field.name)
+apps.advertisement.models.Advertisement.product.RelatedObjectDoesNotExist: Advertisement has no product.
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 525.405182 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 523.341996 seconds)
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /create_advertisement/16/
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\daneshgah\asd-g7\apps\advertisement\views.py", line 20, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\contrib\auth\mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 172, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 141, in post
+    if form.is_valid():
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 185, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 180, in errors
+    self.full_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 383, in full_clean
+    self._post_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\models.py", line 403, in _post_clean
+    self.instance.full_clean(exclude=exclude, validate_unique=False)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 1137, in full_clean
+    self.clean()
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 28, in clean
+    advs = Advertisement.objects.filter(product__id=self.product.id, page=self.page, place=self.place)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\related_descriptors.py", line 188, in __get__
+    "%s has no %s." % (self.field.model.__name__, self.field.name)
+apps.advertisement.models.Advertisement.product.RelatedObjectDoesNotExist: Advertisement has no product.
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /create_advertisement/16/
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\daneshgah\asd-g7\apps\advertisement\views.py", line 20, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\contrib\auth\mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 172, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 141, in post
+    if form.is_valid():
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 185, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 180, in errors
+    self.full_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 383, in full_clean
+    self._post_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\models.py", line 403, in _post_clean
+    self.instance.full_clean(exclude=exclude, validate_unique=False)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 1137, in full_clean
+    self.clean()
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 28, in clean
+    advs = Advertisement.objects.filter(product__id=self.product.id, page=self.page, place=self.place)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\related_descriptors.py", line 188, in __get__
+    "%s has no %s." % (self.field.model.__name__, self.field.name)
+apps.advertisement.models.Advertisement.product.RelatedObjectDoesNotExist: Advertisement has no product.
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 258.725715 seconds)
+ERROR:django.request:Internal Server Error: /create_advertisement/16/
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\daneshgah\asd-g7\apps\advertisement\views.py", line 20, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\contrib\auth\mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 172, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 141, in post
+    if form.is_valid():
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 185, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 180, in errors
+    self.full_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 383, in full_clean
+    self._post_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\models.py", line 403, in _post_clean
+    self.instance.full_clean(exclude=exclude, validate_unique=False)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 1137, in full_clean
+    self.clean()
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 28, in clean
+    advs = Advertisement.objects.filter(product=self.product, page=self.page, place=self.place)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\related_descriptors.py", line 188, in __get__
+    "%s has no %s." % (self.field.model.__name__, self.field.name)
+apps.advertisement.models.Advertisement.product.RelatedObjectDoesNotExist: Advertisement has no product.
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 209.055540 seconds)
+ERROR:django.request:Internal Server Error: /create_advertisement/16/
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\daneshgah\asd-g7\apps\advertisement\views.py", line 20, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\contrib\auth\mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 172, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 141, in post
+    if form.is_valid():
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 185, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 180, in errors
+    self.full_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 383, in full_clean
+    self._post_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\models.py", line 403, in _post_clean
+    self.instance.full_clean(exclude=exclude, validate_unique=False)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 1137, in full_clean
+    self.clean()
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 29, in clean
+    advs = Advertisement.objects.filter(product=self.product, page=self.page, place=self.place)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\related_descriptors.py", line 188, in __get__
+    "%s has no %s." % (self.field.model.__name__, self.field.name)
+apps.advertisement.models.Advertisement.product.RelatedObjectDoesNotExist: Advertisement has no product.
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-16 23:48:22.976780+03:30 (in 183.564644 seconds)
+ERROR:django.request:Internal Server Error: /create_advertisement/16/
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\daneshgah\asd-g7\apps\advertisement\views.py", line 20, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\contrib\auth\mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 172, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 141, in post
+    if form.is_valid():
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 185, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 180, in errors
+    self.full_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\forms.py", line 383, in full_clean
+    self._post_clean()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\models.py", line 403, in _post_clean
+    self.instance.full_clean(exclude=exclude, validate_unique=False)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\base.py", line 1137, in full_clean
+    self.clean()
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 28, in clean
+    print(self.product)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\fields\related_descriptors.py", line 188, in __get__
+    "%s has no %s." % (self.field.model.__name__, self.field.name)
+apps.advertisement.models.Advertisement.product.RelatedObjectDoesNotExist: Advertisement has no product.
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+INFO:apscheduler.executors.default:Running job "finish_advertise (trigger: date[2019-02-16 20:18:22 UTC], next run at: 2019-02-16 20:18:22 UTC)" (scheduled at 2019-02-16 20:18:22.976780+00:00)
+INFO:apscheduler.scheduler:Removed job advertise_5
+INFO:apscheduler.executors.default:Running job "finish_advertise (trigger: date[2019-02-16 20:18:22 UTC], next run at: 2019-02-16 20:18:22 UTC)" (scheduled at 2019-02-16 20:18:22.976780+00:00)
+WARNING:django_apscheduler.events:Job with id advertise_5 not found in database
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 11225.902557 seconds)
+WARNING:django_apscheduler:Job with id advertise_5 not found. Can't remove job.
+INFO:apscheduler.scheduler:Removed job advertise_5
+WARNING:django_apscheduler.events:Job with id advertise_5 not found in database
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 11225.885556 seconds)
+INFO:apscheduler.executors.default:Job "finish_advertise (trigger: date[2019-02-16 20:18:22 UTC], next run at: 2019-02-16 20:18:22 UTC)" executed successfully
+WARNING:django_apscheduler.events:Job with id advertise_5 not found in database
+ERROR:apscheduler.executors.default:Job "finish_advertise (trigger: date[2019-02-16 20:18:22 UTC], next run at: 2019-02-16 20:18:22 UTC)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "F:\daneshgah\asd-g7\backend_settings\scheduler.py", line 34, in finish_advertise
+    apps.get_model("advertisement", "Advertisement").objects.get(id=id).delete()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\db\models\query.py", line 399, in get
+    self.model._meta.object_name
+apps.advertisement.models.Advertisement.DoesNotExist: Advertisement matching query does not exist.
+WARNING:django_apscheduler.events:Job with id advertise_5 not found in database
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 11144.734674 seconds)
+ERROR:django.request:Internal Server Error: /create_advertisement/16/
+Traceback (most recent call last):
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\daneshgah\asd-g7\apps\advertisement\views.py", line 20, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\contrib\auth\mixins.py", line 52, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 172, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 142, in post
+    return self.form_valid(form)
+  File "F:\daneshgah\asd-g7\apps\advertisement\views.py", line 51, in form_valid
+    return super().form_valid(form)
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\generic\edit.py", line 125, in form_valid
+    self.object = form.save()
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\forms\models.py", line 458, in save
+    self.instance.save()
+  File "F:\daneshgah\asd-g7\apps\advertisement\models.py", line 37, in save
+    project_scheduler.add_advertise(self)
+  File "F:\daneshgah\asd-g7\backend_settings\scheduler.py", line 89, in add_advertise
+    print(advertise.date + timedelta(days=advertise.period))
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'datetime.timedelta'
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 11051.340157 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 10940.601330 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 10878.317462 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:54:23.807605+03:30 (in 10799.895002 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:54:23.807605+03:30 (in 10656.937091 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:54:23.807605+03:30 (in 10644.791282 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:54:23.807605+03:30 (in 10565.978836 seconds)
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django_apscheduler:Job with id advertise_17 already in jobstore. I'll refresh it
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:54:23.807605+03:30 (in 10542.241798 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 9992.840050 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 9973.682542 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 9925.140896 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 9923.080912 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 9910.167255 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 9841.200645 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 9384.004423 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 9381.895100 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 9365.091665 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 8853.016259 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 8837.312130 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 8752.220319 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 8738.864528 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 8701.363659 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 8688.719926 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 8200.540710 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 7966.744781 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 7964.457813 seconds)
+WARNING:django.request:Not Found: /favicon.ico
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 7943.597738 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 7384.305272 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 7158.925995 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 7096.164684 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 7080.576434 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 7025.930387 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 6979.524669 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 6965.700050 seconds)
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 6787.600308 seconds)
+INFO:apscheduler.scheduler:Added job "finish_advertise" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 6690.672243 seconds)
+WARNING:django.request:Not Found: /class="img-circle"
+WARNING:django.request:Not Found: /class="img-circle"
+WARNING:django.request:Not Found: /class="img-circle"
+WARNING:django.request:Not Found: /class="img-circle"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2019-02-17 02:55:28.960615+03:30 (in 4076.580144 seconds)
