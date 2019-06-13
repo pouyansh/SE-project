@@ -7,3 +7,5 @@ lxml
 simplejson
 pytz
 six
+whitenoise
+psycopg2

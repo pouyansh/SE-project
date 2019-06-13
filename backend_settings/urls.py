@@ -21,7 +21,7 @@ from django.urls import path, include
 from django.conf.urls import url
 import django.views.static
 
-admin.site.site_header = "Royan TuCAGene"
+admin.site.site_header = "SE"
 urlpatterns = [
 
                   url(r'^media/(?P<path>.*)$', django.views.static.serve,
