@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'helpdesk.apps.HelpdeskConfig',
     'bootstrapform',
     'markdown_deux',
+    'django.contrib.humanize',
+    'django.contrib.sites'
 ]
 
 SITE_ID = 1
