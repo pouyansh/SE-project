@@ -9,7 +9,7 @@ import java.util.Random;
 public class first {
 
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver", "F:\\daneshgah\\Software engineering\\project\\phase3\\SE-project\\selenium_libraries\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "..\\..\\..\\selenium_libraries\\geckodriver.exe");
         FirefoxDriver driver = new FirefoxDriver();
 
         login(driver);
