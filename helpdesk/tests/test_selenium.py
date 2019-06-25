@@ -10,7 +10,7 @@ from selenium.webdriver.common.keys import Keys
 
 class SeleniumTests(LiveServerTestCase):
     def setUp(self):
-        self.selenium = webdriver.Remote("http://localhost:4444/wd/hub", DesiredCapabilities.FIREFOX)
+        self.selenium = webdriver.Remote("http://192.168.112.128:4444/wd/hub", DesiredCapabilities.FIREFOX)
         super(SeleniumTests, self).setUp()
 
     def tearDown(self):
