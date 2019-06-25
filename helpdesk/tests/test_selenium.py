@@ -8,6 +8,7 @@ from selenium.webdriver.common.keys import Keys
 
 class SeleniumTests(LiveServerTestCase):
     def setUp(self):
+        os.environ["webdriver.chrome.driver"] = '/usr/local/bin/chromedriver'
         self.selenium = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
         super(SeleniumTests, self).setUp()
 
