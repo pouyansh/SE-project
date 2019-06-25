@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 
 class SeleniumTests(LiveServerTestCase):
     def setUp(self):
-        self.selenium = webdriver.Chrome('/usr/local/bin/chromedriver')
+        self.selenium = webdriver.Chrome('/usr/bin/chromedriver')
         super(SeleniumTests, self).setUp()
 
     def tearDown(self):
