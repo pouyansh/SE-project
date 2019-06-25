@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 
 class SeleniumTests(LiveServerTestCase):
     def setUp(self):
-        self.selenium = webdriver.Firefox(executable_path=r'/usr/local/bin/geckodriver')
+        self.selenium = webdriver.Firefox(executable_path=r'geckodriver')
         super(SeleniumTests, self).setUp()
 
     def tearDown(self):
