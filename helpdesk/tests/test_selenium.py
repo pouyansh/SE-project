@@ -4,12 +4,13 @@ import time
 
 from django.test import LiveServerTestCase
 from selenium import webdriver
+from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.common.keys import Keys
 
 
 class SeleniumTests(LiveServerTestCase):
     def setUp(self):
-        self.selenium = webdriver.Chrome()
+        self.selenium = webdriver.Remote("http://localhost:4444", DesiredCapabilities.FIREFOX)
         super(SeleniumTests, self).setUp()
 
     def tearDown(self):
