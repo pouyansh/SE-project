@@ -28,8 +28,8 @@ class SeleniumTests(LiveServerTestCase):
         password = selenium.find_element_by_name("password")
 
         print("filling username and password ...")
-        username.sendKeys("se")
-        password.sendKeys("se")
+        username.send_keys("se")
+        password.send_keys("se")
 
         form = selenium.find_element_by_tag_name("form")
         print("submitting the form ...")
@@ -65,8 +65,8 @@ class SeleniumTests(LiveServerTestCase):
 
         r = random.randint
         print("Filling the title and slug ...")
-        title.sendKeys("queue_" + r)
-        slug.sendKeys("slug")
+        title.send_keys("queue_" + r)
+        slug.send_keys("slug")
         time.sleep(1000)
 
         form = selenium.find_element_by_id("queue_form")
@@ -79,17 +79,17 @@ class SeleniumTests(LiveServerTestCase):
 
         select = selenium.find_element_by_id("id_queue")
         print("Filling the form ...")
-        select.sendKeys("1")
+        select.send_keys("1")
         time.sleep(1000)
 
         r = random.randint
 
         titleTicket = selenium.find_element_by_id("id_title")
-        titleTicket.sendKeys("ticket_" + r)
+        titleTicket.send_keys("ticket_" + r)
         time.sleep(1000)
 
         description = selenium.find_element_by_id("id_body")
-        description.sendKeys("ticket_" + r)
+        description.send_keys("ticket_" + r)
         time.sleep(1000)
 
         formTicket = selenium.find_element_by_tag_name("form")
